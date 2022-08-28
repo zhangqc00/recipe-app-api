@@ -7,7 +7,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
     PermissionsMixin,
 )
-from sklearn.manifold import trustworthiness
+
 
 class UserManager(BaseUserManager):
     """Manager for users."""
@@ -21,7 +21,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    
+
     def create_superuser(self, email, password):
         """Create and return a new superuser."""
         user = self.create_user(email, password)
@@ -42,4 +42,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-
